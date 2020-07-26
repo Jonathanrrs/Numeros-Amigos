@@ -32,17 +32,20 @@ class NumerosAmigos {
             for (let i2 = 0; i2 < this.save.length; i2++) {
                if(this.save[i].suma == this.save[i2].position && this.save[i2].suma == this.save[i].position && this.save[i].suma != this.save[i].position) {
                 console.log(this.save[i2].suma);
-                print +=  ` Número amigo: ${this.save[i2].suma}`;
+                print +=  ` <strong>Número amigo: </strong> ${this.save[i2].suma}`;
                }
                
             }
         }
-        document.write(print)
+        /* document.write(print) */
+        document.querySelector("#resultado").innerHTML = print;
     }
 
    
 }
 
 let numAmigos = new NumerosAmigos();
-numAmigos.calcular(5000);
-numAmigos.empatar()
+document.querySelector("#btn").addEventListener("click", () => {
+    numAmigos.calcular(5000);
+    numAmigos.empatar()
+})
